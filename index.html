@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="home.css">
+    <title>Wette</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1><u>Wette</u></h1>
+    <form name="form" id="form" action="write.php" method="post">
+        <div class="label"><label for="fname">Vorname:</label></div>
+        <div class="input"><input type="text" name="fname" id="fname" width="100%" required></div>
+        <div class="label"><label for="lname">Nachname:</label></div>
+        <div class="input"><input type="text" name="lname" id="lname" required></div>
+        <input type="radio" id="Keiner" name="positiv" value="Keiner">
+        <label for="Keiner">Keiner</label>
+        <input type="radio" id="Basti" name="positiv" value="Basti">
+        <label for="Basti">Basti</label>
+        <input type="radio" id="Leo" name="positiv" value="Leo">
+        <label for="Leo">Leo</label>
+        <input type="radio" id="Beide" name="positiv" value="Beide">
+        <label for="Beide">Beide</label><br>
+        <label for="einsatz">Einsatz (zwischen 2&euro; and 10&euro;):</label>
+        <input type="number" id="einsatz" name="einsatz" min="2" max="10"><br>
+        <input type="submit" value="Absenden">
+    </form>
+    <h2><u>Aktuelle Eins&auml;tze</u></h2>
+    <div class="col">
+        <p>Keiner</p><br>
+        <p id="k" class="a_einsatz"></p>
+    </div>
+    <div class="col">
+        <p>Basti</p><br>
+        <p id="ba" class="a_einsatz"></p>
+    </div>
+    <div class="col">
+        <p>Leo</p><br>
+        <p id="l" class="a_einsatz"></p>
+    </div>
+    <div class="col">
+        <p>Beide</p><br>
+        <p id="be" class="a_einsatz"></p>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $.get("read.php", function (data) {
+                einsatz = data.split(";");
+                document.getElementById("k").innerHTML = einsatz[0] + " &euro;";
+                document.getElementById("ba").innerHTML = einsatz[1] + " &euro;";
+                document.getElementById("l").innerHTML = einsatz[2] + " &euro;";
+                document.getElementById("be").innerHTML = einsatz[3] + " &euro;";
+            });
+        })
+    </script>
+
+
+
+</body>
+
+</html>

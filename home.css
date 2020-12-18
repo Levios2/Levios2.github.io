@@ -1,0 +1,21 @@
+body
+{
+    text-align: center;
+    font-size: 20px;
+    font-family:arial, sans-serif;
+}
+input[type=submit]
+{
+    font-size: 20px;
+}
+.col
+{
+    float: left;
+    width: 24%;
+    border-right-style: solid;
+}
+.a_einsatz
+{
+    font-size: 40px;
+    color: rgb(24, 179, 24);
+}
